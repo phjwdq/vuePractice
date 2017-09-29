@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class属性3</title>
+	<style>
+	/*第一步*/
+		.color{
+			color:red;
+		}
+		.bgcolor{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<!-- json串 推荐！ -->
+		<strong :class="json">文字。。。</strong>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				// 第二步 样式类为真则显示此样式
+				// 样式为假 则不显示此样式
+				json:{
+					color:true,
+					bgcolor:false
+				}
+			}
+		});
+	}
+</script>
+</html>

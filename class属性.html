@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class属性</title>
+	<style>
+	/*第一步*/
+		.fontColor{
+			color:red;
+		}
+		.bgColor{
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<!-- 方法一 不推荐 -->
+	<div id="box">
+		<!-- 第三步 引用vue中的数据变量名 -->
+		<strong :class="[color,bColor]">文字。。。。</strong>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				// 第二步 仅仅是在vue中，对calss类名重新命名
+				color:'fontColor',
+				bColor:'bgColor'
+			},
+			methods:{
+
+			}
+		});
+	}
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>style属性3</title>
+</head>
+<body>
+	<div id="box">
+		<p :style="json">短路l</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				json:{
+					color:'red',
+					backgroundColor:"yellow"
+				}
+			},
+			methods:{
+
+			}
+		});
+	}
+</script>
+</html>

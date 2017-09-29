@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class属性2</title>
+	<style>
+		.color{
+			color:red;
+		}
+		.bgcolor{
+			background-color:yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<!-- 第二步 样式类为真 则显示 -->
+		<strong v-bind:class="{color:true,bgcolor:a}">文字。。。</strong>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				a:false
+			},
+			methods:{
+
+			}
+		});
+	}
+</script>
+</html>

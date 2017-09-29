@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html属性</title>
+</head>
+<body>
+	<div id="box">
+		<!-- 方法一 能够显示效果 但是报错 -->
+		<!-- <img src="{{url}}" alt=""> -->
+		
+		<!-- 方法二 能够显示效果 且没有错误 
+			绑定属性用v-bind  
+			并且直接写数据，不用写{{}}！！ -->
+		<!-- <img v-bind:src="url" alt="" v-bind:width="w"> -->
+
+		<!-- 方法三 简写 推荐！！ -->
+		<img :src="url" alt="" :height="h" :title="t">
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				url:"https://www.baidu.com/img/bd_logo1.png",
+				w:"100px",
+				h:"50px",
+				t:"百度logo"
+			},
+			methods:{
+
+			}
+		});
+	}
+</script>
+</html>

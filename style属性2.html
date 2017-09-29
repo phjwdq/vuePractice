@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>style属性2</title>
+</head>
+<body>
+	<div id="box">
+		<p :style="[c,b]">段落哦</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				c:{color:'red'},
+				b:{backgroundColor:'yellow'}
+			}
+		});
+	}
+</script>
+</html>
