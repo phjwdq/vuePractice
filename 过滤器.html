@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤器</title>
+</head>
+<body>
+	<div id="box">
+		<p>{{msg|uppercase}}</p>
+		<p>{{'WELCOME'|lowercase|capitalize}}</p>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				msg:"msgaaa",
+			},
+			methods:{
+
+			}
+		});
+	}
+</script>
+</html>

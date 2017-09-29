@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue模板</title>
+</head>
+<body>
+	<div id="box">
+		<!-- 注意：data中的变量名msg 不是{{msg}} -->
+		<input type="text" v-model="msg">
+		<br>
+
+		<!-- 数据变化 模板更改 -->
+		<p>{{msg}}</p>
+
+		<!-- 数据只进行一次绑定 -->
+		<p>{{*msg}}</p>
+
+		<!-- html转义 -->
+		{{{msg}}}
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+				msg:'abc'
+			},
+			methods:{
+
+			}
+		});
+	}
+</script>
+</html>
