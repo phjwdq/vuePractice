@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深入上下左右事件</title>
+</head>
+<body>
+	<div id="box">
+		<input type="text" @keydown="show($event)">
+		<input type="text" @keydown.37="showleft()">
+		<input type="text" @keydown.left="show37()">
+		<input type="text" @keydown.up="showup()">
+		<input type="text" @keydown.down="showdown()">
+		<input type="text" @keydown.right="showright()">
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+
+			},
+			methods:{
+				show:function(ev){
+					alert(ev.keyCode);
+				},
+				showleft:function(){
+					alert("left");
+				},
+				show37:function(){
+					alert("37left");
+				},
+				showup:function(){
+					alert("up");
+				},
+				showdown:function(){
+					alert("down");
+				},
+				showright:function(){
+					alert("right");
+				}
+			}
+		});
+	}
+</script>
+</html>

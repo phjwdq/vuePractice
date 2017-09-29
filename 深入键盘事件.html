@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深入键盘事件</title>
+</head>
+<body>
+	<div id="box">
+		<!-- 显示keyCode 
+			注意：大小写没有区分？？-->
+		<input type="text" @keydown="show($event)">
+		<input type="text" @keyup="showup($event)">
+		<!-- 触发enter键的三种形式
+		@keydown.enter 推荐！ -->
+		<input type="text" @keydown="show13($event)">
+		<input type="text" @keydown.13="show13_1()">
+		<input type="text" @keydown.enter="show13_2()">
+
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+
+			},
+			methods:{
+				show:function(ev){
+					alert(ev.keyCode);
+				},
+				showup:function (ev){
+					alert(ev.keyCode);
+				},
+				show13:function(ev){
+					if(ev.keyCode == 13){
+						alert("enter键");
+					}
+				},
+				show13_1:function(){
+					alert("enter键");
+				},
+				show13_2:function(){
+					alert("enter键");
+				}
+			}
+		});
+	}
+</script>
+</html>

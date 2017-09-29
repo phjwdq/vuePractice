@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深入事件</title>
+</head>
+<body>
+	<div class="box">
+		<!-- 没有参数时候，可以不用写括号 -->
+		<button v-on:click="show">按钮</button>
+		<br>	
+		<!-- 事件的简写 推荐！ -->
+		<button @click="show2">按钮</button>
+
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">	
+		window.onload = function(){
+			var vm = new Vue({
+				el:".box",
+				data:{
+
+				},
+				methods:{
+					show:function(){
+						alert("v-on:click");
+					},
+					show2:function(){
+						alert("@click");
+					}
+				}
+			});
+		}
+</script>
+</html>
