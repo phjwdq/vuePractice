@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container" id="box">
+		<form role="form">
+			<div class="form-group">
+				<label for="name">用户名:</label>
+				<input type="text" id="name" placeholder="请输入用户名" class="form-control" v-model="name">
+			</div>
+			<div class="form-group">
+				<label for="age">年 龄:</label>
+				<input type="text" id="age" placeholder="请输入年龄" class="form-control" v-model="age">
+			</div>
+			<div class="form-group">
+				<input type="button" value="添加" class="btn btn-primary" v-on:click="add()">
+				<input type="reset" value="重置" class="btn btn-danger">
+				<!-- 注意：不能使用button标签添加和重置 -->
+			</div>
+		</form>
+		<hr>
+		<table class="table table-bordered table-hover">
+			<caption class="text-info h2">用户信息表</caption>
+			<tr class="text-primary">
+				<th class="text-center">序号</th>
+				<th class="text-center">姓名</th>
+				<th class="text-center">年龄</th>
+				<th class="text-center">操作</th>
+			</tr>
+			<tr class="text-center" v-for="item in stu">
+				<td>{{$index+1}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.age}}</td>
+				<td>
+					<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#layer" v-on:click="nowIndex=$index">删除</button>
+				</td>
+			</tr>
+			<tr class="text-right" v-show="stu.length!=0">
+				<td colspan="4">
+					<!-- click中多个变量，要用逗号隔开！！ -->
+					<button class="btn btn-danger" data-toggle="modal" data-target="#layer" v-on:click="nowIndex=-2,delinfo='确定删除全部吗？'">删除全部</button>
+				</td>
+			</tr>
+			<tr class="text-center" v-show="stu.length==0">
+				<td colspan="4">
+					<p>暂无数据...</p>
+				</td>
+			</tr>
+		</table>
+		<!-- 模态框 弹出框 -->
+		<div role="dialog" class="modal fade bs-example-modal-sm" id="layer">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+						<h4 class="modal-title">{{delinfo}}</h4>
+					</div>
+					<div class="modal-body text-right">
+						<button class="btn btn-primary btn-sm" data-dismiss="modal">取消</button>
+						<button class="btn btn-danger btn-sm" v-on:click="del(nowIndex)" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:'#box',
+			data:{
+				stu:[],
+				name:'',
+				age:'',
+				// nowIndex可以是任何负的数值
+				nowIndex:-100,
+				delinfo:'确定删除吗？',
+			},
+			methods:{
+				add:function(){
+					console.log(this);
+					this.stu.push({
+						name:this.name,
+						age:this.age
+					});
+					console.log(this.name,this.age);
+					this.name="";
+					this.age="";
+				},
+				del:function(index){
+					if(index==-2){
+						this.stu=[];
+					}else{
+						this.stu.splice(index,1);
+					}
+				}
+
+			}
+		});
+	}
+</script>
+</html>
