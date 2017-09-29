@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件冒泡</title>
+</head>
+<body>
+	<!-- 产生冒泡 -->
+	<!-- <div id="box" @click="divfun">
+		<button @click="btnfun">按钮</button>
+	</div> -->
+
+	<!-- 阻止冒泡方法一 推荐！ -->
+	<div id="box" @click="divfun">
+		<button @click.stop="btnfun">按钮</button>
+	</div>
+
+
+	<!-- 阻止冒泡方法二 -->
+	<!-- <div id="box" @click="divfun">
+		<button @click="btnfun2($event)">按钮</button>
+	</div> -->
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+
+			},
+			methods:{
+				divfun:function(){
+					alert("divfun");
+				},
+				btnfun:function(){
+					alert("btnfun");
+				},
+				btnfun2:function(ev){
+					// 两种方法都可以
+					// ev.cancelBubble=true;
+					ev.stopPropagation();
+					alert("btnfun2");
+				}
+			}
+		});
+	}
+</script>
+</html>
