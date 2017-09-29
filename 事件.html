@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style type="text/css">
+		#box{
+			width: 300px;
+			height: 300px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="按钮" v-on:click="a=!a">
+	<div id="box" v-show="a"></div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+		el:'body',
+		data:{
+			a:true
+		}
+	});
+	}
+	
+</script>
+</html>
