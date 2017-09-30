@@ -2,34 +2,30 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>class属性2</title>
-	<style>
-		.color{
-			color:red;
-		}
-		.bgcolor{
-			background-color:yellow;
-		}
-	</style>
+	<title>vue交互postTxt</title>
 </head>
 <body>
 	<div id="box">
-		<!-- 第二步 样式类为真 则显示 
-			{json}
-			:之后是有此样式的条件 -->
-		<strong v-bind:class="{color:true,bgcolor:a}">文字。。。</strong>
+		<button @click="post">按钮</button>
 	</div>
 </body>
 <script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-resource.js"></script>
 <script type="text/javascript">
 	window.onload = function(){
 		var vm = new Vue({
 			el:"#box",
 			data:{
-				a:false
+
 			},
 			methods:{
-
+				post:function(){
+					this.$http.post("a.txt",{emulateJSON:true}).then(function(res){
+						alert(res.data);
+					},function(err){
+						alert(err.status);
+					});
+				}
 			}
 		});
 	}

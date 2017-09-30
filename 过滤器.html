@@ -8,6 +8,13 @@
 	<div id="box">
 		<p>{{msg|uppercase}}</p>
 		<p>{{'WELCOME'|lowercase|capitalize}}</p>
+		<p>
+			<!-- 可以写参数 -->
+			{{12}}
+			{{12|currency}}
+			{{12|currency 'REB'}}
+			{{12|currency '￥'}}
+		</p>
 	</div>
 </body>
 <script type="text/javascript" src="js/vue.js"></script>

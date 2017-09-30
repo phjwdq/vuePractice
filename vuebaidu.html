@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vuebaidu</title>
+</head>
+<!-- 百度 -->
+<!-- https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&cb=jQuery110207770770979028545_1506736563668&_=1506736563672 -->
+<body>
+	<div id="box">
+		<button @click="bdfun()">按钮</button>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-resource.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+
+			},
+			methods:{
+				bdfun:function(){
+					this.$http.jsonp("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",{
+						wd:'a'
+					},{
+						// 注意：
+						// 此时的cb代表callback
+						jsonp:'cb'
+					}).then(function(res){
+						alert(res.status);
+						alert(res.data.s);
+					},function(err){
+						alert(err.status);
+					})
+				}
+			}
+		});
+	}
+</script>
+</html>

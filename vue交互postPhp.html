@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue交互postPhp</title>
+</head>
+<body>
+	<div id="box">
+		<input type="button" value="按钮" @click="post()">
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue-resource.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var vm = new Vue({
+			el:"#box",
+			data:{
+
+			},
+			methods:{
+				post:function(){
+					this.$http.post("post.php",{
+						a:9,
+						b:8
+					},{
+						emulateJSON:true
+					}).then(function(res){
+						alert(res.status)
+						alert(res.data);
+					},function(err){
+						alert(err.status);
+					});
+				}
+			}
+		});
+	}
+</script>
+</html>
